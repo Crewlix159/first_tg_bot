@@ -9,11 +9,19 @@ def send_welcome(message):
 Я твой Бот!
 Вам доступны следующие комманды:
     /start
-    /hello"""
+    /hello
+    /bye"""
     bot.reply_to(message, msg)
 @bot.message_handler(commands=["hello"])
 def send_hello(message):
     msg = "Тебе тоже привет!"
     bot.reply_to(message, msg)
+@bot.message_handler(commands=['bye'])
+def send_bye(message):
+    msg = "И тебе удачи, Броо!"
+    bot.reply_to(message, msg)
+@bot.message_handler(func=lambda message: True)
+def echo_all(message):
+    bot.reply_to(message, message.text)
 #hi
 bot.polling()
