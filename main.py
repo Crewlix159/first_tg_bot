@@ -15,4 +15,5 @@ def send_welcome(message):
 def send_hello(message):
     msg = "Тебе тоже привет!"
     bot.reply_to(message, msg)
+#hi
 bot.polling()
